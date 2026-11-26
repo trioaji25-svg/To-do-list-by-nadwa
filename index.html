@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#176b55">
+  <meta name="description" content="To-Do-List Nadwa - aplikasi pengelola tugas sederhana.">
+  <title>To-Do-List Nadwa</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon-192.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section id="loginPage" class="login-page">
+      <div class="login-card">
+        <div class="brand-icon">✓</div>
+        <p class="eyebrow">PERSONAL TASK MANAGER</p>
+        <h1>To-Do-List<span> Nadwa</span></h1>
+        <p class="muted">Satu langkah kecil, satu tugas terselesaikan.</p>
+        <form id="loginForm">
+          <label for="username">Username</label>
+          <input id="username" type="text" placeholder="Masukkan username" autocomplete="username" required>
+          <label for="password">Password</label>
+          <div class="password-wrap">
+            <input id="password" type="password" placeholder="Masukkan password" autocomplete="current-password" required>
+            <button type="button" id="togglePassword" class="show-password" aria-label="Tampilkan password">lihat</button>
+          </div>
+          <p id="loginError" class="error-message" role="alert"></p>
+          <button class="primary-btn login-btn" type="submit">Masuk ke Dashboard <span>→</span></button>
+        </form>
+        <p class="login-foot">Admin access · Nadwa</p>
+      </div>
+    </section>
+
+    <section id="dashboardPage" class="dashboard-page hidden">
+      <header class="topbar">
+        <div class="brand-small"><div class="mini-icon">✓</div><span>To-Do-List <b>Nadwa</b></span></div>
+        <button id="logoutBtn" class="logout-btn">Keluar ↗</button>
+      </header>
+      <div class="dashboard-content">
+        <section class="welcome">
+          <div>
+            <p class="eyebrow">ADMIN DASHBOARD</p>
+            <h1>Halo, Nadwa <span>✦</span></h1>
+            <p class="muted">Atur kegiatanmu dan selesaikan satu per satu.</p>
+          </div>
+          <div class="date-chip" id="todayDate"></div>
+        </section>
+
+        <section class="stats-grid">
+          <article class="stat-card"><span class="stat-icon">☷</span><p>Total tugas</p><strong id="totalCount">0</strong></article>
+          <article class="stat-card"><span class="stat-icon green">✓</span><p>Selesai</p><strong id="doneCount">0</strong></article>
+          <article class="stat-card"><span class="stat-icon amber">◷</span><p>Belum selesai</p><strong id="pendingCount">0</strong></article>
+        </section>
+
+        <section class="task-panel">
+          <div class="panel-heading">
+            <div><p class="eyebrow">MY DAILY PLAN</p><h2>Daftar Tugas</h2></div>
+            <span class="task-total" id="taskTotalLabel">0 tugas</span>
+          </div>
+          <form id="taskForm" class="add-task-form">
+            <input id="taskInput" type="text" maxlength="120" placeholder="Tulis tugas yang ingin dikerjakan..." required>
+            <button class="primary-btn add-btn" type="submit">＋ <span>Tambah</span></button>
+          </form>
+          <div class="filter-row">
+            <button class="filter-btn active" data-filter="all">Semua</button>
+            <button class="filter-btn" data-filter="pending">Belum selesai</button>
+            <button class="filter-btn" data-filter="done">Selesai</button>
+          </div>
+          <ul id="taskList" class="task-list"></ul>
+          <div id="emptyState" class="empty-state">
+            <div class="empty-icon">✧</div>
+            <h3>Belum ada tugas</h3>
+            <p>Tambahkan tugas pertamamu di kolom atas.</p>
+          </div>
+        </section>
+        <footer class="footer-note">Made for Nadwa <span>♥</span> · Tugas tersimpan otomatis di perangkat ini</footer>
+      </div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
